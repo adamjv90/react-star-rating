@@ -5,7 +5,7 @@ var React = require('react');
 /**
  * @fileoverview react-star-rating
  * @author @cameronjroe
- * <StarRating 
+ * <StarRating
  *   name={string} - name for form input (required)
  *   caption={string} - caption for rating (optional)
  *   ratingAmount={number} - the rating amount (required, default: 5)
@@ -64,10 +64,10 @@ module.exports = React.createClass({
   componentWillMount: function () {
     this.min = 0;
     this.max = this.props.ratingAmount || 5;
-    
+
     if (this.props.rating) {
-      
-      this.state.editing = false;
+
+      //this.state.editing = false;
 
       var ratingVal = this.props.rating;
       this.setState({
@@ -114,7 +114,7 @@ module.exports = React.createClass({
     }
     return (val - min) * 100 / (max - min);
   },
-  
+
   getValueFromPosition: function (pos) {
     var precision = this.getDecimalPlaces(this.props.step);
     var maxWidth = this.ratingContainer.offsetWidth;
@@ -129,7 +129,7 @@ module.exports = React.createClass({
   calculate: function (pos) {
     var val = this.getValueFromPosition(pos),
         width = this.getWidthFromValue(val);
-    
+
     width += '%';
     return {width: width, val: val};
   },
@@ -227,7 +227,7 @@ module.exports = React.createClass({
   render: function () {
 
     var caption = null;
-    
+
     // is there a caption?
     if (this.props.caption) {
       caption = (<span className="react-rating-caption">{this.props.caption}</span>);
