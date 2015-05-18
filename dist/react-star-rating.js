@@ -132,7 +132,7 @@ module.exports = React.createClass({displayName: "exports",
         factor = Math.ceil(factor);
     var val = this.applyPrecision(parseFloat(this.min + factor * this.props.step), precision);
         val = Math.max(Math.min(val, this.max), this.min);
-    return val;
+    return Math.round(val);
   },
 
   calculate: function (pos) {
