@@ -68,11 +68,20 @@ module.exports = React.createClass({displayName: "exports",
     if (this.props.rating) {
 
       //this.state.editing = false;
-
       var ratingVal = this.props.rating;
-      this.setState({
+      var ratingPos = this.getStarRatingPosition(ratingVal);
+
+      var ratingCache = {
+        pos: ratingPos,
         rating: ratingVal,
-        pos: this.getStarRatingPosition(ratingVal)
+        caption: this.props.caption,
+        name: this.props.name
+      };
+
+      this.setState({
+        ratingCache: ratingCache,
+        rating: ratingVal,
+        pos: ratingPos
       });
     }
 
